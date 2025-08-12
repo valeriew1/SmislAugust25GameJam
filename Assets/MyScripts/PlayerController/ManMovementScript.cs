@@ -7,8 +7,19 @@ using UnityEngine;
 public class ManMovementScript : PlayerStateBase
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private Canvas ResctrictCanvas;
 
-    Rigidbody rb;
+    //[SerializeField] private GameObject playerL;
+    //[SerializeField] private GameObject playerR;
+    //[SerializeField] private GameObject playerF;
+    //[SerializeField] private GameObject playerB;
+
+    //Rigidbody rb;
+
+    //Rigidbody rgL;
+    //Rigidbody rbR;
+    //Rigidbody rbF;
+    //Rigidbody rbB;
 
     [SerializeField] private float speed;
     [SerializeField] private float distance;
@@ -42,7 +53,8 @@ public class ManMovementScript : PlayerStateBase
     protected override void Start()
     {
         base.Start();
-        rb = player.GetComponent<Rigidbody>();
+        //rb = player.GetComponent<Rigidbody>();
+        //rbF = playerF.GetComponent<Rigidbody>();
         InputManager.Instance.OnForwardPressed += MoveForward;
         InputManager.Instance.OnBackPressed += MoveBack;
         InputManager.Instance.OnRightPressed += MoveRight; 
@@ -71,6 +83,8 @@ public class ManMovementScript : PlayerStateBase
         if (canMoveForward == true) 
         {
             Vector3 moveForward = new Vector3(0, 0, -distance) * speed * Time.deltaTime;
+            //transform.Translate(moveForward, Space.Self);
+            
             transform.Translate(moveForward, Space.Self);
         }
     }
@@ -112,6 +126,14 @@ public class ManMovementScript : PlayerStateBase
         transform.Rotate(0, -1, 0);
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        ResctrictCanvas.gameObject.SetActive(true);
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        ResctrictCanvas.gameObject.SetActive(false);
+    }
 
     //private void OnCollisionEnter(Collision collision)
     //{
@@ -222,14 +244,15 @@ public class ManMovementScript : PlayerStateBase
     public override void Execute()
     {
 
-        if (RoomManager.Instance.FrontCollided is true) 
-        {
-            canMoveForward = false;
-        }
-        else if (RoomManager.Instance.FrontCollided is false)
-        {
-            canMoveForward = true;
-        }
+        //if (RoomManager.Instance.FrontCollided is true) 
+        //{
+        //    //Debug.Log("11111");
+        //    canMoveForward = false;
+        //}
+        //else if (RoomManager.Instance.FrontCollided is false)
+        //{
+        //    canMoveForward = true;
+        //}
 
         //curentMousePos.x = Input.mousePosition.x;
 

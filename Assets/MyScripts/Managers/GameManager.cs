@@ -119,16 +119,20 @@ public class GameManager : Singleton<GameManager>
 
     public void AutoNextState() 
     {
+        //Debug.Log(currentState);
         if (currentState == GameState.MainMenu)
-        { 
+        {
+            Debug.Log("в игре");
             ChangeState(GameState.RoomPlay); 
         }
-        if (currentState == GameState.RoomPlay)
-        { 
+        else if (currentState == GameState.RoomPlay)
+        {
+            Debug.Log("в миниигре");
             ChangeState(GameState.MiniGame); 
         }
-        if (currentState == GameState.MiniGame)
-        { 
+        else if (currentState == GameState.MiniGame)
+        {
+            Debug.Log("в игре");
             ChangeState(GameState.RoomPlay); 
         }
         

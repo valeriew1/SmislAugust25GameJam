@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class FrontColliderTrig : MonoBehaviour
 {
     [SerializeField] private GameObject front;
+    Rigidbody rbF;
     void Start()
     {
-        
+        rbF = front.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -25,9 +27,11 @@ public class FrontColliderTrig : MonoBehaviour
             //RoomManager.Instance.FrontCollided = true;
         }
     }
+
     private void OnCollisionExit(Collision collision)
     {
-        RoomManager.Instance.CantMoveFront();
+        if (collision.gameObject.CompareTag("Wall"))
+        RoomManager.Instance.CanMoveFront();
         //RoomManager.Instance.FrontCollided = false;
     }
 }

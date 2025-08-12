@@ -30,10 +30,12 @@ public class InputManager : Singleton<InputManager>
     void Update()
     {
         if (GameManager.Instance.CurrentState == GameManager.GameState.RoomPlay)
-        { 
+        {
             HandleKeyInput();
         }
-        
+
+        //HandleKeyInput();
+
         //HandleMovementInput();
         //HandleActionInput();
         //HandleMouseInput();

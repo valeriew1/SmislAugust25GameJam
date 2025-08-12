@@ -19,6 +19,11 @@ public class RoomManager : MonoBehaviour
 
     public bool CantMoveFront() 
     {
+        FrontCollided = true;
+        return FrontCollided;
+    }
+    public bool CanMoveFront() 
+    {
         FrontCollided = false;
         return FrontCollided;
     }

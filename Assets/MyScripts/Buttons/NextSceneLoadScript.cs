@@ -22,7 +22,7 @@ public class NextSceneLoadScript : MonoBehaviour
     public void onNextSceneLoadButton()
     {
         SceneManager.LoadScene(currentSceneIndex+1);
-        //GameManager.Instance.AutoNextState();
+        GameManager.Instance.AutoNextState();
         //GameManager.Instance.ChangeState(Gam);
 
         //GameManager.Instance.LoadScene("MainMenu");
