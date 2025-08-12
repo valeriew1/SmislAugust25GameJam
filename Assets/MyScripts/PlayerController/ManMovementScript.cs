@@ -142,164 +142,14 @@ public class ManMovementScript : PlayerStateBase
         ResctrictCanvas.gameObject.SetActive(false);
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.collider.CompareTag("FrontCollider"))
-    //    {
-    //        Vector3 moveBack = new Vector3(0, 0, distance * 10) * speed * 10 * Time.deltaTime;
-    //        transform.Translate(moveBack, Space.Self);
-    //        //canMoveForward = false;
-    //    }
-    //    if (collision.collider.CompareTag("BackCollider"))
-    //    {
-    //        canMoveBack = false;
-    //    }
-    //    if (collision.collider.CompareTag("RightCollider"))
-    //    {
-    //        canMoveRight = false;
-    //    }
-    //    if (collision.collider.CompareTag("LeftCollider"))
-    //    {
-    //        canMoveLeft = false;
-    //    }
-    //    //if (collision.collider.CompareTag("FrontWall")) 
-    //    //{
-    //    //    //transform.Translate()
-    //    //    canMoveForward = false;
-    //    //}
-    //    //if (collision.collider.CompareTag("BackWall")) 
-    //    //{
-    //    //    canMoveBack = false;
-    //    //}
-    //    //if (collision.collider.CompareTag("RightWall")) 
-    //    //{
-    //    //    canMoveRight = false;
-    //    //}
-    //    //if (collision.collider.CompareTag("LeftWall")) 
-    //    //{
-    //    //    canMoveLeft = false;
-    //    //}
-    //}
-
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if (collision.collider.CompareTag("FrontCollider"))
-    //    {
-    //        //Vector3 moveBack = new Vector3(0, 0, distance * 10) * speed * 10 * Time.deltaTime;
-    //        //transform.Translate(moveBack, Space.Self);
-
-    //        //transform.Translate()
-    //        canMoveForward = false;
-    //    }
-    //    if (collision.collider.CompareTag("BackCollider"))
-    //    {
-    //        canMoveBack = false;
-    //    }
-    //    if (collision.collider.CompareTag("RightCollider"))
-    //    {
-    //        canMoveRight = false;
-    //    }
-    //    if (collision.collider.CompareTag("LeftCollider"))
-    //    {
-    //        canMoveLeft = false;
-    //    }
-    //}
-
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (collision.collider.CompareTag("FrontCollider"))
-    //    {
-    //        //transform.Translate()
-    //        canMoveForward = true;
-    //    }
-    //    if (collision.collider.CompareTag("BackCollider"))
-    //    {
-    //        canMoveBack = true;
-    //    }
-    //    if (collision.collider.CompareTag("RightCollider"))
-    //    {
-    //        canMoveRight = true;
-    //    }
-    //    if (collision.collider.CompareTag("LeftCollider"))
-    //    {
-    //        canMoveLeft = true;
-    //    }
-    //}
-
-
     public override void Enter()
     {
 
     }
     
-    //private void onMouse()
-    //{
-    //    curentMousePos.x = Input.mousePosition.x;
-
-    //    if (curentMousePos.x < SCRleft)
-    //    {
-    //        //player.transform.Rotate(0, -50f, 0);
-    //        player.transform.rotation = Quaternion.identity;
-    //    }
-    //    else if (curentMousePos.x > SCRright)
-    //    {
-    //        //player.transform.Rotate(0, 50f, 0);
-    //        player.transform.rotation = Quaternion.identity;
-    //    }
-    //}
 
     public override void Execute()
     {
-
-        //if (RoomManager.Instance.FrontCollided is true) 
-        //{
-        //    //Debug.Log("11111");
-        //    canMoveForward = false;
-        //}
-        //else if (RoomManager.Instance.FrontCollided is false)
-        //{
-        //    canMoveForward = true;
-        //}
-
-        //curentMousePos.x = Input.mousePosition.x;
-
-        //if (curentMousePos.x < SCRleft)
-        //{
-        //    Vector3 currentMouseRotationPosition = Input.mousePosition;
-        //    float deltaY = (curentMousePos.x - originalPosition.x) * rotationSpeed * Time.deltaTime;
-        //    //float rotationAmount = invertRotation ? -deltaX : deltaX;
-        //    player.transform.Rotate(0, deltaY/50, 0);
-        //    //player.transform.Rotate(0, -50f, 0);
-        //}
-        //else if (curentMousePos.x > SCRright)
-        //{
-        //    //player.transform.Rotate(0, 50f, 0);
-        //}
-
-
-
-        //mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //mouseWorldPos.z = transform.position.z;
-        //originalPosition = mouseWorldPos;
-        ////originalPosition = ClampPositionToCameraView(originalPosition);
-
-
-        //curentMousePos = Input.mousePosition;
-
-        //if (curentMousePos.x - 5 < centralPos) 
-        //{
-        //    //player.transform.rotation = Quaternion.identity;
-        //    //Vector3 currentMouseRotationPosition = Input.mousePosition;
-        //    float deltaY = (curentMousePos.x - originalPosition.x) * rotationSpeed * Time.deltaTime;
-        //    //float rotationAmount = invertRotation ? -deltaX : deltaX;
-        //    transform.Rotate(0, deltaY, 0);
-        //}
-        //else if (curentMousePos.x + 5 > centralPos) 
-        //{
-        //    float deltaY = (curentMousePos.x + originalPosition.x) * rotationSpeed * Time.deltaTime;
-        //    transform.Rotate(0, deltaY, 0);
-        //}
-
 
     }
 
@@ -311,16 +161,20 @@ public class ManMovementScript : PlayerStateBase
     public override void ProcessFixedUpdate()
     {
 
-        //x = Input.GetAxis("Horizontal");
-        //z = Input.GetAxis("Vertical");
-
-        //if ()
-
-        //Vector3 movement = new Vector3(x, 0, z);
-        //player.transform.Translate(movement * speed * Time.deltaTime);
     }
 
-    
+    private void OnDestroy()
+    {
+        InputManager.Instance.OnForwardPressed -= MoveForward;
+        InputManager.Instance.OnBackPressed -= MoveBack;
+        InputManager.Instance.OnRightPressed -= MoveRight;
+        InputManager.Instance.OnLeftPressed -= MoveLeft;
+
+        InputManager.Instance.OnRightRotate -= RotateRight;
+        InputManager.Instance.OnLeftRotate -= RotateLeft;
+    }
+
+
 
 
 }
