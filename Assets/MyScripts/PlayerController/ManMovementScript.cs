@@ -50,6 +50,13 @@ public class ManMovementScript : PlayerStateBase
     //        Gizmos.DrawWireSphere(transform.position, AttackRange);
 
 
+    //protected virtual void Awake()
+    //{
+    //    if (GameManager.Instance.CurrentState == GameManager.GameState.RoomPlay)
+    //    { DontDestroyOnLoad(gameObject); }
+        
+    //}
+
     protected override void Start()
     {
         base.Start();
