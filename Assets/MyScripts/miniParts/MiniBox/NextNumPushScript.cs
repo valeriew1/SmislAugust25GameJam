@@ -11,7 +11,7 @@ public class NextNumPushScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        
+        //square.GetComponentInChildren<Renderer>().
     }
 
 
