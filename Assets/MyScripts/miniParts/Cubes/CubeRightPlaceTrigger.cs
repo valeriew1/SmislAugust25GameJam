@@ -30,7 +30,7 @@ public class CubeRightPlaceTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        int n = CubeLevelManager.Instance.NumProv(cube) +1;
+        int n = CubeLevelManager.Instance.NumProv(cube);
 
         //if (other.gameObject.name == cube.name)
         //if (other.gameObject == cube)
@@ -46,7 +46,7 @@ public class CubeRightPlaceTrigger : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        int n = CubeLevelManager.Instance.NumProv(cube) + 1;
+        int n = CubeLevelManager.Instance.NumProv(cube);
 
         if (other.gameObject.CompareTag("cub" + n))
         {

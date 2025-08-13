@@ -57,7 +57,7 @@ public class CubeLevelManager : MonoBehaviour
         for (int i = 0; i < cubes.Length; i++)
         {
             if (cubes[i] == _letNum)
-            { LetterNum = i; }
+            { LetterNum = i+1; }
         }
 
         return LetterNum;
