@@ -14,14 +14,15 @@ public class PreviousNumPushScript : MonoBehaviour
         if (MiniBoxManager.Instance.curpushnum > 0)
         {
             numImage[MiniBoxManager.Instance.curpushnum].gameObject.SetActive(false);
-            numImage[MiniBoxManager.Instance.curpushnum - 1].gameObject.SetActive(true);
+            numImage[MiniBoxManager.Instance.curpushnum-1].gameObject.SetActive(true);
             MiniBoxManager.Instance.Minus();
         }
         else if (MiniBoxManager.Instance.curpushnum == 0)
         {
-            numImage[MiniBoxManager.Instance.curpushnum].gameObject.SetActive(false);
-            numImage[9].gameObject.SetActive(true);
             MiniBoxManager.Instance.curpushnum = 9;
+            numImage[0].gameObject.SetActive(false);
+            numImage[9].gameObject.SetActive(true);
+            //MiniBoxManager.Instance.curpushnum = 9;
         }
 
 

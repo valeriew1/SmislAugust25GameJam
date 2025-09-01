@@ -6,18 +6,20 @@ public class NextNumPushScript : MonoBehaviour
 {
 
     [SerializeField] private GameObject[] numImage;
-    [SerializeField] private GameObject push;
+    [SerializeField] private GameObject pushNum;
     //[SerializeField] private int maxPush;
 
     //public int currentpush = 0;
 
     private void OnMouseDown()
     {
+        MiniBoxManager.Instance.OnMousePushArrow(pushNum);
         if (MiniBoxManager.Instance.curpushnum < 9)
         {
-            numImage[MiniBoxManager.Instance.curpushnum].gameObject.SetActive(false);
-            numImage[MiniBoxManager.Instance.curpushnum + 1].gameObject.SetActive(true);
             MiniBoxManager.Instance.Plus();
+            numImage[MiniBoxManager.Instance.curpushnum-1].gameObject.SetActive(false);
+            numImage[MiniBoxManager.Instance.curpushnum].gameObject.SetActive(true);
+            
         }
         else if (MiniBoxManager.Instance.curpushnum == 9)
         {
@@ -28,7 +30,6 @@ public class NextNumPushScript : MonoBehaviour
 
 
 
-        //square.GetComponentInChildren<Renderer>().
     }
 
 
